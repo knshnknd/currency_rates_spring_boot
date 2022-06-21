@@ -39,33 +39,32 @@
         cursor: pointer;
     }
     </style>
-
 </head>
 <body>
-<div class="parent">
-    <div class ="modal">
-<h4>Поиск по коду валюты (например: USD):</h4>
-<form method="post" action="/filter">
-    <input type="text" name="filter" />
-    <button type="submit">Найти</button>
-</form>
-        <p th:text="${error_message}"/>
-<h3>Курс валют на сегодня:</h3>
-<table>
-    <tr>
-        <th>Номинал</th>
-        <th>Код</th>
-        <th>Наименование</th>
-        <th>Курс</th>
-    </tr>
-    <tr th:each="oneCurrency : ${currencies}">
-        <td th:text="${oneCurrency.getNominal()}"></td>
-        <td th:text="${oneCurrency.getCharCode()}"></td>
-        <td th:text="${oneCurrency.getName()}"></td>
-        <td th:text="${oneCurrency.getValue()} + ₽"></td>
-    </tr>
-</table>
+    <div class="parent">
+        <div class ="modal">
+            <h4>Поиск по коду валюты (например: USD):</h4>
+            <form method="post" action="/filter">
+                <input type="text" name="filter">
+                <button type="submit">Найти</button>
+            </form>
+            <p th:text="${error_message}"/>
+            <h3>Курс валют на сегодня:</h3>
+            <table>
+                <tr>
+                    <th>Номинал</th>
+                    <th>Код</th>
+                    <th>Наименование</th>
+                    <th>Курс</th>
+                </tr>
+                <tr th:each="oneCurrency : ${currencies}">
+                    <td th:text="${oneCurrency.getNominal()}"></td>
+                    <td th:text="${oneCurrency.getCharCode()}"></td>
+                    <td th:text="${oneCurrency.getName()}"></td>
+                    <td th:text="${oneCurrency.getValue()} + ₽"></td>
+                </tr>
+            </table>
+        </div>
     </div>
-</div>
 </body>
 </html>
