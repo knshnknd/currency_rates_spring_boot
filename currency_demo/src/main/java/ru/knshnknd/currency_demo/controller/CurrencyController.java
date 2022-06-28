@@ -17,7 +17,7 @@ public class CurrencyController {
 
     // Внедрение зависимости сервисного объекта, который будет возвращать List с данными о валютах из ЦБ РФ
     @Autowired
-    CurrencyService currencyService;
+    private CurrencyService currencyService;
 
     // Обработка GET-запроса: показ информации о всех валютах на страницу
     @GetMapping("/currency")
